@@ -1,0 +1,25 @@
+name: HTML and JS Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Validar estructura
+        run: |
+          echo "Comprobando que index.html existe..."
+          test -f index.html
+          echo "Estructura válida."
+
+      - name: Test de consola (Opcional)
+        run: |
+          echo "Simulando pruebas de JS..."
